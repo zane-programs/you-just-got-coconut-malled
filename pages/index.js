@@ -10,6 +10,8 @@ export default function Home() {
 
   const [headline, setHeadline] = useState("");
   const [description, setDescription] = useState("");
+  const [senderName, setSenderName] = useState("");
+
   const [linkToCopy, setLinkToCopy] = useState("");
   const [isLinkCopied, setLinkCopied] = useState(false); // holds temporarily whether or not the link was copied
 
@@ -24,9 +26,13 @@ export default function Home() {
         "/story/" +
         slugify(headline.toLowerCase()) +
         "/" +
-        slugify(description)
+        slugify(description) +
+        // adds sender name if applicable
+        (senderName && senderName !== ""
+          ? "?ref=" + encodeURIComponent(btoa(senderName))
+          : "")
     );
-  }, [headline, description]);
+  }, [headline, description, senderName]);
 
   const copyLinkToClipboard = useCallback(() => {
     if (headline !== "" && description !== "") {
@@ -60,6 +66,12 @@ export default function Home() {
           onValueChange={setDescription}
           placeholder="Description"
         />
+        <NewsGeneratorInput
+          type="text"
+          value={senderName}
+          onValueChange={setSenderName}
+          placeholder="Sender Name (optional)"
+        />
         <button
           onClick={copyLinkToClipboard}
           className={styles.createButton}
@@ -75,6 +87,7 @@ export default function Home() {
           value={linkToCopy}
           contentEditable={true}
           readOnly={false}
+          onChange={(e) => e.preventDefault()}
           // on purpose
           suppressContentEditableWarning={true}
         />
@@ -86,5 +99,11 @@ export default function Home() {
 const slugify = (text) => encodeURIComponent(text.replace(/ /g, "-"));
 
 function NewsGeneratorInput({ onValueChange, ...props }) {
-  return <input onChange={(e) => onValueChange(e.target.value)} {...props} />;
+  return (
+    <input
+      className={styles.newsGeneratorInput}
+      onChange={(e) => onValueChange(e.target.value)}
+      {...props}
+    />
+  );
 }

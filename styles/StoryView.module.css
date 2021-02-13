@@ -58,7 +58,7 @@ button.storyButton {
   display: block;
 
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
 
   position: relative;
   left: 50%;
@@ -90,4 +90,12 @@ button.storyButton:hover {
 .storyButtonContainerOuter .inner {
   display: inline-block;
   position: relative;
+}
+
+img.articleImage {
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }

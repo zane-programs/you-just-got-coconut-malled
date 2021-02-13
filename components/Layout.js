@@ -39,6 +39,15 @@ export default function Layout({
           href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Rubik:wght@400;600&display=swap"
           rel="stylesheet"
         />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-1Q406J8MPE"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if(!window.gtag){window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-1Q406J8MPE');}`,
+          }}
+        />
       </Head>
       {children}
     </>

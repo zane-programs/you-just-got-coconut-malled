@@ -24,7 +24,7 @@ button.createButton {
   -webkit-tap-highlight-color: transparent;
   border-radius: 3px;
 
-  margin: 15px 0px 0px 0px;
+  margin: 25px 0px 0px 0px;
   padding: 7px 16px 7px 16px;
 }
 
@@ -41,4 +41,25 @@ button.createButton:hover {
 
   top: -99999px;
   left: -99999px;
+}
+
+input.newsGeneratorInput {
+  width: 100%;
+  padding: 7px 10px 7px 10px;
+
+  font-size: 22px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+
+  color: var(--background-color);
+  background-color: var(--foreground-color);
+
+  box-sizing: border-box;
+  display: block;
+
+  margin-bottom: 15px;
+
+  border: none;
+  border-radius: 3px;
+  -webkit-tap-highlight-color: transparent;
 }

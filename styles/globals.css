@@ -9,7 +9,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: var(--background-color);
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .app-padded-container {

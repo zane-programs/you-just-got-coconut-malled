@@ -15,7 +15,7 @@ const VideoState = Object.freeze({
   FinishedPlaying: 3, // after video has played
 });
 
-export default function StoryView({ headline, description /*, name*/ }) {
+export default function StoryView({ headline, description, name }) {
   const [videoState, setVideoState] = useState(VideoState.PreVideo);
   const videoRef = useRef(null);
   const { width, height } = useWindowDimensions();
@@ -23,12 +23,14 @@ export default function StoryView({ headline, description /*, name*/ }) {
   const startVideo = useCallback(() => {
     setVideoState(VideoState.PlayingVideo);
     document.body.style.backgroundColor = "#000"; // set background color to black
+    document.body.style.overflow = "hidden"; // prevent scrolling
     videoRef.current.play();
   }, [setVideoState, videoRef]);
 
   const handleVideoEnd = useCallback(() => {
     setVideoState(VideoState.FinishedPlaying);
     document.body.style.removeProperty("background-color");
+    document.body.style.removeProperty("overflow");
   }, [setVideoState]);
 
   return (
@@ -44,6 +46,11 @@ export default function StoryView({ headline, description /*, name*/ }) {
       >
         <div className="logoText">BreakingNews</div>
         <h1 className={styles.heading}>{headline}</h1>
+        <img
+          src="/NewsPlaceholder.png"
+          alt={`(Image for article: "${headline}")`}
+          className={styles.articleImage}
+        />
         <p className={styles.subtitle}>{description}</p>
         <ButtonsContainer>
           <StoryButton onClick={startVideo} className={styles.openBtn}>
@@ -65,7 +72,7 @@ export default function StoryView({ headline, description /*, name*/ }) {
       >
         <source src="/CoconutMalled.mp4" type="video/mp4" />
       </video>
-      {videoState === 3 ? <PostVideoUpsell /> : null}
+      {videoState === 3 ? <PostVideoUpsell name={name} /> : null}
     </Layout>
   );
 }
@@ -91,19 +98,23 @@ function ButtonsContainer({ children }) {
 
 // shown after the video plays to suggest to the
 // coconut-malled person that they prank someone else
-function PostVideoUpsell() {
+function PostVideoUpsell({ name }) {
   const router = useRouter();
 
   return (
     <div className="app-padded-container">
-      <h1 className="logoText">Coconut Malled!</h1>
-      <p className={styles.subtitleLarge}>You just got Coconut Malled!</p>
+      <h1 className="logoText">BreakingNews</h1>
+      <p className={styles.subtitleLarge}>
+        You just got Coconut Malled{name ? ` by ${name}` : ""}!
+      </p>
       <p className={styles.subtitle}>
         Want to prank your friends, too? With our website, you can create a
         custom news headline to clickbait unsuspecting friends and
         acquaintances.
       </p>
-      <StoryButton onClick={() => router.push("/")}>Create Your Own</StoryButton>
+      <StoryButton onClick={() => router.push("/")}>
+        Create Your Own
+      </StoryButton>
     </div>
   );
 }
