@@ -24,6 +24,7 @@ export default function Layout({
           }
         />
         <title>{title ? `${title} | BreakingNews` : "Coconut Mall"}</title>
+        <script async src="https://arc.io/widget.min.js#xsv71wLx"></script>
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
