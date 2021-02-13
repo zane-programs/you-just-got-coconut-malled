@@ -1,4 +1,4 @@
-.logoText {
+/* .logoText {
   font-family: "Playfair Display", serif;
   font-weight: 700;
   color: var(--foreground-color);
@@ -8,7 +8,7 @@
 
   cursor: default;
   user-select: none;
-}
+} */
 
 h1.heading {
   font-family: "Playfair Display", serif;
@@ -20,16 +20,25 @@ h1.heading {
   text-align: center;
 }
 
-.subtitle {
+.subtitle,
+.subtitleLarge {
   font-family: "Rubik", sans-serif;
   font-weight: 400;
   color: var(--foreground-color);
-  font-size: 22px;
 
   text-align: center;
 }
 
+.subtitle {
+  font-size: 22px;
+}
+
+.subtitleLarge {
+  font-size: 30px;
+}
+
 button.storyButton {
+  user-select: none;
   font-family: "Rubik", sans-serif;
   font-weight: 600;
   text-transform: uppercase;
@@ -48,7 +57,8 @@ button.storyButton {
 
   display: block;
 
-  width: 275px;
+  width: 100%;
+  max-width: 400px;
 
   position: relative;
   left: 50%;
