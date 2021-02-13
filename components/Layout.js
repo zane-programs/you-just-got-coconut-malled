@@ -28,9 +28,10 @@ export default function Layout({
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
         />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Rubik:wght@400;600&display=swap"
           rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Roboto+Mono:wght@300;400;500;700&family=Rubik:wght@400;700&display=swap"
         />
       </Head>
       {children}

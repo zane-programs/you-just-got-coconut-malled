@@ -1,4 +1,4 @@
-html,
+/* html,
 body {
   padding: 0;
   margin: 0;
@@ -13,4 +13,21 @@ a {
 
 * {
   box-sizing: border-box;
+} */
+:root {
+  --background-color: #222;
+  --foreground-color: #eee;
+  --app-padding: 15px;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--background-color);
+  overflow: hidden;
+}
+
+.app-padded-container {
+  padding: var(--app-padding);
 }

@@ -1,0 +1,83 @@
+.logoText {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  color: var(--foreground-color);
+
+  font-size: 40px;
+  text-align: center;
+
+  cursor: default;
+  user-select: none;
+}
+
+h1.heading {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  color: var(--foreground-color);
+
+  font-size: 35px;
+
+  text-align: center;
+}
+
+.subtitle {
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  color: var(--foreground-color);
+  font-size: 22px;
+
+  text-align: center;
+}
+
+button.storyButton {
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+
+  cursor: pointer;
+
+  color: var(--foreground-color);
+  background-color: var(--background-color);
+  border: 1px solid var(--foreground-color);
+  -webkit-tap-highlight-color: transparent;
+  border-radius: 3px;
+
+  margin: 0;
+  padding: 7px 16px 7px 16px;
+
+  display: block;
+
+  width: 275px;
+
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+button.storyButton.openBtn {
+  font-size: 25px;
+}
+
+button.storyButton.saveForLater {
+  font-size: 20px;
+}
+
+button.storyButton:not(:last-child) {
+  margin-bottom: 5px;
+}
+
+button.storyButton:hover {
+  color: var(--background-color);
+  background-color: var(--foreground-color);
+}
+
+.storyButtonContainerOuter {
+  width: 100%;
+  text-align: center;
+}
+
+.storyButtonContainerOuter .inner {
+  display: inline-block;
+  position: relative;
+}
